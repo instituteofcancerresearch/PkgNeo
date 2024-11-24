@@ -1,0 +1,57 @@
+# PkgNeo
+A package for the neoantigens calculation at the Institute of Cancer Research.  
+
+**Author** Rachel Alcraft, Institute of Cancer Research, London, UK  
+
+### Installation
+This can be installed as a pakage from github. As this is a private repo you will nbeed to authenticate with your github credentials. You will need to have been given access to this repo.   
+
+YOu will need the following R packages installed `usethis` and `remotes`
+
+1. set config  
+usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")
+
+2. Go to github page to generate token
+usethis::create_github_token() 
+
+3. paste your PAT into pop-up that follows...
+credentials::set_github_pat()
+
+4. now remotes::install_github() will work
+remotes::install_github("instituteofcancerresearch/PkgNeo")
+
+### Usage
+This packahe has a few gene sequences that can be retrieved, and the functions to calculate the upstrream and downstram stop codins for a mutation along with information about the mutation and up-and-down shifts.        
+
+```R
+library(PkgNeo)
+# Get the gene sequence for a gene
+gene_seq <- get_gene_seq("brca1")
+# Get the up-down factors
+up_down_factors <- up_down_factors("c.5266dupC",gene_seq)
+
+# The results include:
+
+# Original seqeunce information
+up_down_factors$dna_orig
+up_down_factors$aa_orig      
+
+# Mutation information
+up_down_factors$ins_piece
+up_down_factors$del_piece
+up_down_factors$new_dna
+
+# Upstream shift information
+up_down_factors$up_aa
+up_down_factors$up_stub
+up_down_factors$up_stop
+
+# Downstream shift information
+up_down_factors$down_aa
+up_down_factors$down_stub
+up_down_factors$down_stop
+
+# metric information
+up_down_factors$distance      
+      
+```
