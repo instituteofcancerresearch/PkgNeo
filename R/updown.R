@@ -38,6 +38,7 @@ up_down_factors <- function(mutation, sequence) {
       down_stop = mut_pos$down_stop,
       up_stub = mut_pos$up_stub,
       down_stub = mut_pos$down_stub,
+      down_non_wild = mut_pos$down_non_wild,
       len_orig = nchar(sequence)
     ))
   }
@@ -115,8 +116,20 @@ apply_mutation <- function(mutation, sequence) {
   }
   # down_stub <- substring(aa_with_down_shift, 1, first_stop)
   
-  up_stub <- substring(aa_with_up_shift, last_stop, (pos_start + offset)/3 + 10)
-  down_stub <- substring(aa_with_down_shift, pos_start/3 - 10, first_stop)
+  up_plus_10 <- substring(aa_with_up_shift, last_stop, (pos_start + offset)/3 + 10)
+  down_plus_10 <- substring(aa_with_down_shift, pos_start/3 - 10, first_stop)
+
+  # Downstream diffs, start at the beginning of original sequence and downstream and start adding when there is a diff
+  pos_down <- 0
+  for (i in seq(1, nchar(sequence))) {
+    if (substring(sequence, i, i) != substring(aa_with_down_shift, i, i)) {
+      pos_down <- i
+      break
+    }
+  }
+
+  down_non_wild <- substring(aa_with_down_shift, pos_down, nchar(aa_with_down_shift))
+  
   
 
       
@@ -134,8 +147,9 @@ apply_mutation <- function(mutation, sequence) {
     up_aa = aa_with_up_shift,
     up_stop = last_stop,
     down_stop = first_stop,
-    up_stub = up_stub,
-    down_stub = down_stub,
+    up_plus_10 = up_plus_10,
+    down_plus_10 = down_plus_10,
+    down_non_wild = down_non_wild,
     distance = distance,
     ok = TRUE
   ))
