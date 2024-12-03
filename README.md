@@ -6,19 +6,19 @@ A package for the neoantigens calculation at the Institute of Cancer Research.
 ### Installation
 This can be installed as a pakage from github. As this is a private repo you will need to authenticate with your github credentials. You will need to have been given access to this repo.   
 
-YOu will need the following R packages installed `usethis` and `remotes`
+YOu will need the following R packages installed `usethis` and `remotes`  
 
 1. set config  
-usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")
+`usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")`  
 
-2. Go to github page to generate token
-usethis::create_github_token() 
+2. Go to github page to generate token  
+`usethis::create_github_token()` 
 
-3. paste your PAT into pop-up that follows...
-credentials::set_github_pat()
+3. paste your PAT into pop-up that follows...  
+`credentials::set_github_pat()`  
 
-4. now remotes::install_github() will work
-remotes::install_github("instituteofcancerresearch/PkgNeo")
+4. now remotes::install_github() will work  
+`remotes::install_github("instituteofcancerresearch/PkgNeo")`  
 
 ### Usage
 This packahe has a few gene sequences that can be retrieved, and the functions to calculate the upstrream and downstram stop codins for a mutation along with information about the mutation and up-and-down shifts.        
