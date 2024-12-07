@@ -1,5 +1,5 @@
 ---
-title: "Generate Package Website with pkgdown and Github Pages"
+title: "Stop Gains introduced by mutations"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Generate Package Website with pkgdown and Github Pages}
@@ -15,5 +15,5 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(PkgNeo)
+library(PkgStopGain)
 ```
