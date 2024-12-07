@@ -18,7 +18,7 @@ remotes::install_github("instituteofcancerresearch/PkgStopGain", force=TRUE)
 
 ## Documentation  
 
-This package has a few gene sequences that can be retrieved, and the functions to calculate the upstrream and downstram stop codins for a mutation along with information about the mutation and up-and-down shifts.        
+This package has a few gene sequences that can be retrieved, and the functions to calculate the upstream and downstream stop codons for a mutation along with information about the mutation and up-and-down shifts.        
 
 ### Find the genes with pre-saved sequences
 ```R
@@ -59,7 +59,7 @@ $ok
 ```
 
 ### Get the stop gain information
-**The downstream stop gain** is first stop codon after the mutation (downstream of the mutation, to the right).  
+**The downstream stop gain** is the first stop codon after the mutation (downstream of the mutation, to the right).  
 The sequence will shift from the wildtype downstream until there is a stop.  
 `WWWWWWWWWXXXXXXXXXX*YYYYYYYYYYYYY`  
 Where
@@ -68,7 +68,7 @@ Where
 - Y is the shifted sequence after the stop codon  
 We want to return the `XXXXXXXXX*` and the equivalent dna sequence.  
 
-**The upstream stop gain** is first stop codon before the mutation (upstream of the mutation, to the left).  
+**The upstream stop gain** is the first stop codon before the mutation (upstream of the mutation, to the left).  
 This assumes that the protein sequence is read from right to left.  
 The sequence will shift from the wildtype upstream until there is a stop.  
 `YYYYYYYYY*XXXXXXXXXXWWWWWWWWWW`  
