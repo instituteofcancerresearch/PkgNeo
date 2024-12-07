@@ -108,8 +108,9 @@ $up_dna_stop_gain
 [1] "tgaatgagcatgattttgaagtcagaggagatgtggtcaatggaagaaaccaccaaggtccaaagcgagcaagagaatccc"
       
 ```
-
 ---  
+
+## Additional developer information
 
 #### Private authentication
 For a private repo you will need to authenticate with your github credentials. You will need to have been given access to this repo.   
